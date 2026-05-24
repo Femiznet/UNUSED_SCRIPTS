@@ -23,12 +23,11 @@ def verify_installation(commands:list[str], use_path:str) -> str | None:
             text=True,
             shell=True,
             cwd=use_path,
+            stdin=subprocess.DEVNULL
         )
 
         if result.returncode == 0:
             return result.stdout
-
-import platform
 
 def get_os():
     """Get the name of the host operating system.
